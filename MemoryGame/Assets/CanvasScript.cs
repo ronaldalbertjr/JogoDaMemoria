@@ -15,14 +15,8 @@ public class CanvasScript : MonoBehaviour
 	    
 	}
 
-    public void OnClick(Button button)
+    public void OnClick(RawImage image)
     {
-        time += Time.deltaTime;
-        if (time > 51)
-        {
-            button.transform.eulerAngles = new Vector3(0f, 180f);
-            button.transform.localScale = new Vector3(1.5f, 1.5f);
-            button.GetComponent<Animator>().enabled = false;
-        }
+        image.transform.SetAsLastSibling();
     }
 }
