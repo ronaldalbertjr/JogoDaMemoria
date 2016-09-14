@@ -6,11 +6,11 @@ public class ButtonScript : MonoBehaviour
 {
     public Sprite sp;
     public GameObject equivalenteImage;
+    public bool clicked = false;
 
     RawImage ima;
 
     float time;
-    bool clicked = false;
     bool bothClicked = false;
 	
 	void Update () 
@@ -40,7 +40,6 @@ public class ButtonScript : MonoBehaviour
         clicked = true;
         if(equivalenteImage.GetComponent<ButtonScript>().clicked)
         {
-            Debug.Log("Both Clicked");
             bothClicked = true;
         }
     }
