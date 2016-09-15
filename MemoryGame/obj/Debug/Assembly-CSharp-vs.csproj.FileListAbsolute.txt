@@ -1,15 +1,2 @@
 C:\Users\ronald.junior\Documents\MemoryGame\obj\Debug\Assembly-CSharp-vs.csprojResolveAssemblyReference.cache
 C:\Users\ronald.junior\Documents\JogoDaMemoria\MemoryGame\obj\Debug\Assembly-CSharp-vs.csprojResolveAssemblyReference.cache
-C:\Users\ronald.junior\Documents\JogoDaMemoria\MemoryGame\Temp\bin\Debug\Assembly-CSharp.dll
-C:\Users\ronald.junior\Documents\JogoDaMemoria\MemoryGame\Temp\bin\Debug\Assembly-CSharp.pdb
-C:\Users\ronald.junior\Documents\JogoDaMemoria\MemoryGame\Temp\bin\Debug\UnityEditor.dll
-C:\Users\ronald.junior\Documents\JogoDaMemoria\MemoryGame\Temp\bin\Debug\UnityEditor.iOS.Extensions.Xcode.dll
-C:\Users\ronald.junior\Documents\JogoDaMemoria\MemoryGame\Temp\bin\Debug\UnityEngine.dll
-C:\Users\ronald.junior\Documents\JogoDaMemoria\MemoryGame\Temp\bin\Debug\UnityEngine.UI.dll
-C:\Users\ronald.junior\Documents\JogoDaMemoria\MemoryGame\Temp\bin\Debug\Mono.Cecil.dll
-C:\Users\ronald.junior\Documents\JogoDaMemoria\MemoryGame\Temp\bin\Debug\Unity.SerializationLogic.dll
-C:\Users\ronald.junior\Documents\JogoDaMemoria\MemoryGame\Temp\bin\Debug\Unity.DataContract.dll
-C:\Users\ronald.junior\Documents\JogoDaMemoria\MemoryGame\Temp\bin\Debug\ICSharpCode.NRefactory.dll
-C:\Users\ronald.junior\Documents\JogoDaMemoria\MemoryGame\Temp\bin\Debug\Unity.CecilTools.dll
-C:\Users\ronald.junior\Documents\JogoDaMemoria\MemoryGame\obj\Debug\Assembly-CSharp.dll
-C:\Users\ronald.junior\Documents\JogoDaMemoria\MemoryGame\obj\Debug\Assembly-CSharp.pdb
