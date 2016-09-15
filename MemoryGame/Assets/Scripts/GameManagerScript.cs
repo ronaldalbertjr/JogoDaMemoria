@@ -8,31 +8,45 @@ using UnityEngine.UI;
 
 public class GameManagerScript : MonoBehaviour 
 {
-    GameObject[] cards;
-    GameObject[] cards2;
     List<GameObject> clickedCards = new List<GameObject>();
-	void Start ()
-    {
-        cards = GameObject.FindGameObjectsWithTag("Cards");
-        cards2 = GameObject.FindGameObjectsWithTag("Cards2");
-	}
+
+    float turnTime;
+    bool notEqui = false;
+
 	void Update () 
     {
-	    foreach(GameObject card in cards)
-        {
-            if(card.GetComponent<ButtonScript>().clicked)
-            {
-                clickedCards.Add(card);
-            }
-        }
         if(clickedCards.Count >= 2)
         {
-            Debug.Log(clickedCards[0].name);
-            Debug.Log(clickedCards[1].name);
-            if(clickedCards[0].GetComponent<Image>().sprite == clickedCards[1].GetComponent<Image>().sprite)
+            if(clickedCards[0] == clickedCards[1].GetComponent<ButtonScript>().equivalenteImage && clickedCards[0].GetComponent<ButtonScript>().clicked)
             {
-                Debug.Log("Yeahhh");
+                Debug.Log("YEAHH");
+            }
+            else
+            {
+                notEqui = true;
+                Debug.Log("NOOOOOO");
             }
         }
-	}
+
+        if(notEqui)
+        {
+            turnTime += Time.deltaTime;
+            if(turnTime >= 0.5)
+            {
+                clickedCards[0].GetComponent<ButtonScript>().unTurn();
+                clickedCards[1].GetComponent<ButtonScript>().unTurn();
+            }
+            if(turnTime >= 1.5)
+            {
+                notEqui = false;
+                clickedCards.Clear();
+                turnTime = 0;
+            }
+        }
+    }
+
+    public void click(GameObject card)
+    {
+        clickedCards.Add(card);
+    }
 }
