@@ -6,18 +6,44 @@ public class ButtonScript : MonoBehaviour
 {
     public Sprite sp;
     public Sprite sp2;
-    public GameObject equivalenteImage;
     public bool clicked = false;
-
+    public GameObject equivalenteImage;
+    GameObject[] cards;
+    GameObject[] cards2;
     RawImage ima;
     GameObject gameManager;
-
     float time;
     bool bothClicked = false;
 	
     void Awake()
     {
         gameManager = GameObject.FindGameObjectWithTag("Manager");
+        cards = GameObject.FindGameObjectsWithTag("Cards");
+        cards2 = GameObject.FindGameObjectsWithTag("Cards2");
+    }
+
+    void Start()
+    {
+        if (this.gameObject.tag == "Cards")
+        {
+            foreach(GameObject card in cards2)
+            {
+                if(card.GetComponent<ButtonScript>().sp == this.sp)
+                {
+                    equivalenteImage = card;
+                }
+            }
+        }
+        else if (this.gameObject.tag == "Cards2")
+        {
+            foreach (GameObject card in cards)
+            {
+                if (card.GetComponent<ButtonScript>().sp == this.sp)
+                {
+                    equivalenteImage = card;
+                }
+            }
+        }
     }
 
 	void Update () 

@@ -16,7 +16,7 @@ public class GameManagerScript : MonoBehaviour
     float turnTime;
     bool notEqui = false;
 
-    void Start()
+    void Awake()
     {
         cards = GameObject.FindGameObjectsWithTag("Cards");
         cards2 = GameObject.FindGameObjectsWithTag("Cards2");
@@ -30,16 +30,15 @@ public class GameManagerScript : MonoBehaviour
 
 	void Update () 
     {
-        if(clickedCards.Count >= 2)
+        if(clickedCards.Count >= 2 && !notEqui)
         {
             if(clickedCards[0] == clickedCards[1].GetComponent<ButtonScript>().equivalenteImage && clickedCards[0].GetComponent<ButtonScript>().clicked)
             {
-                Debug.Log("YEAHH");
+                clickedCards.Clear();
             }
             else
             {
                 notEqui = true;
-                Debug.Log("NOOOOOO");
             }
         }
 
@@ -51,7 +50,7 @@ public class GameManagerScript : MonoBehaviour
                 clickedCards[0].GetComponent<ButtonScript>().unTurn();
                 clickedCards[1].GetComponent<ButtonScript>().unTurn();
             }
-            if(turnTime >= 1.5)
+            if(turnTime >= 1)
             {
                 notEqui = false;
                 clickedCards.Clear();
