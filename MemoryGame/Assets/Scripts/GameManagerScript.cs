@@ -10,10 +10,12 @@ public class GameManagerScript : MonoBehaviour
 {
 
     public Sprite[] sps;
-    List<GameObject> clickedCards = new List<GameObject>();
+    public List<GameObject> clickedCards = new List<GameObject>();
+    public Slider life;
     GameObject[] cards;
     GameObject[] cards2;
     float turnTime;
+    int toWin;
     bool notEqui = false;
 
     void Awake()
@@ -30,11 +32,20 @@ public class GameManagerScript : MonoBehaviour
 
 	void Update () 
     {
-        if(clickedCards.Count >= 2 && !notEqui)
+        if(clickedCards.Count > 2)
+        {
+            notEqui = true;
+        }
+        if(clickedCards.Count == 2 && !notEqui)
         {
             if(clickedCards[0] == clickedCards[1].GetComponent<ButtonScript>().equivalenteImage && clickedCards[0].GetComponent<ButtonScript>().clicked)
             {
                 clickedCards.Clear();
+                toWin++;
+                if(toWin >= 11)
+                {
+                    Debug.Log("Venceu");
+                }
             }
             else
             {
@@ -44,17 +55,24 @@ public class GameManagerScript : MonoBehaviour
 
         if(notEqui)
         {
+            life.value -= 0.0005f;
             turnTime += Time.deltaTime;
             if(turnTime >= 0.5)
             {
-                clickedCards[0].GetComponent<ButtonScript>().unTurn();
-                clickedCards[1].GetComponent<ButtonScript>().unTurn();
+                foreach(GameObject cardr in clickedCards)
+                {
+                    cardr.GetComponent<ButtonScript>().unTurn();
+                }
             }
             if(turnTime >= 1)
             {
                 notEqui = false;
                 clickedCards.Clear();
                 turnTime = 0;
+            }
+            if(life.value <= 0)
+            {
+                Debug.Log("Perdeu");
             }
         }
     }
