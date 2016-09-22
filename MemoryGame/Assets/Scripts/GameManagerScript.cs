@@ -64,7 +64,7 @@ public class GameManagerScript : MonoBehaviour
                     cardr.GetComponent<ButtonScript>().unTurn();
                 }
             }
-            if(turnTime >= 1)
+            if(turnTime >= 1.2)
             {
                 notEqui = false;
                 clickedCards.Clear();
