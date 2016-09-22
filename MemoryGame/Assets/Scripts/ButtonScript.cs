@@ -50,8 +50,8 @@ public class ButtonScript : MonoBehaviour
     {
 	    if(clicked)
         {
-            this.transform.rotation = Quaternion.Lerp(this.transform.rotation, Quaternion.Euler(0f, 180f, 0f), 0.1f);
-            if (this.transform.eulerAngles.y >= 90f)
+            this.transform.localRotation = Quaternion.Lerp(this.transform.localRotation, Quaternion.Euler(0f, 180f, 0f), 0.1f);
+            if (this.transform.localEulerAngles.y >= 90f)
             {
                 this.GetComponent<Image>().sprite = sp;         
             }
@@ -81,8 +81,8 @@ public class ButtonScript : MonoBehaviour
     public void unTurn()
     {
         clicked = false;
-        this.transform.rotation = Quaternion.Lerp(this.transform.rotation, Quaternion.Euler(0f, 0f, 0f), 0.1f);
-        if (this.transform.eulerAngles.y >= 270f)
+        this.transform.localRotation = Quaternion.Lerp(this.transform.localRotation, Quaternion.Euler(0f, 0f, 0f), 0.1f);
+        if (this.transform.localEulerAngles.y >= 270f)
         {
             this.GetComponent<Image>().sprite = sp2;
         }
