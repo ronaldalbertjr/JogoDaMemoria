@@ -15,6 +15,7 @@ public class GameManagerScript : MonoBehaviour
     GameObject[] cards;
     GameObject[] cards2;
     float turnTime;
+    float score;
     int toWin;
     bool notEqui = false;
 
@@ -32,7 +33,8 @@ public class GameManagerScript : MonoBehaviour
 
 	void Update () 
     {
-        if(clickedCards.Count > 2)
+        score = life.value * 1000;
+        if (clickedCards.Count > 2)
         {
             notEqui = true;
         }
@@ -45,6 +47,8 @@ public class GameManagerScript : MonoBehaviour
                 if(toWin >= 11)
                 {
                     Debug.Log("Venceu");
+                    score = score > PlayerPrefs.GetFloat("Highscore") ? score : PlayerPrefs.GetFloat("Highscore");
+                    PlayerPrefs.SetFloat("Highscore", score);
                 }
             }
             else
