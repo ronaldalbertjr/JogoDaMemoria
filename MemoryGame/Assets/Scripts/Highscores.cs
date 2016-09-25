@@ -12,10 +12,12 @@ public class Highscores : MonoBehaviour
     {
     }
 
+    public void AddNewHighscore(string username, int score)
     {
         StartCoroutine(UploadNewHighscore(username, score));
     }
     
+    IEnumerator UploadNewHighscore(string username, int score)
     {
         WWW www = new WWW(webURL + privateCode + "/add/" + WWW.EscapeURL(username) + "/" + score);
         yield return www;
@@ -41,6 +43,7 @@ public class Highscores : MonoBehaviour
         if (string.IsNullOrEmpty(www.error))
         {
             FormatHighscores(www.text);
+            leaderboardHighscores.OnHighscoresDownloaded(highscoresList);
         }
         else
         {
@@ -56,6 +59,7 @@ public class Highscores : MonoBehaviour
         {
             string[] entryInfo = entries[i].Split(new char[]{'|'});
             string username = entryInfo[0];
+            int score = int.Parse(entryInfo[1]);
             highscoresList[i] = new Highscore(username, score);
         }
     }
@@ -64,7 +68,9 @@ public class Highscores : MonoBehaviour
 public struct Highscore
 {
     public string username;
+    public int score;
 
+    public Highscore(string _username, int _score)
     {
         username = _username;
         score = _score;
