@@ -4,16 +4,23 @@ using UnityEngine.UI;
 
 public class CameraScript : MonoBehaviour 
 {
-    public bool movement = false;
     public Transform camPos1;
     public Transform camPos2;
     public Canvas menu;
+    public Image bg;
+    public bool movement = false;
+    bool filling = false;
     void Start()
     {
         menu.enabled = false;
+        bg.fillAmount = 0;
     }
 	void Update () 
     {
+        if(filling && bg.fillAmount < 1)
+        {
+            bg.fillAmount += 0.01f;
+        }
         if(movement)
         {
             this.transform.position = Vector3.MoveTowards(this.transform.position, camPos2.position, 10f);
@@ -26,6 +33,7 @@ public class CameraScript : MonoBehaviour
         if(this.transform.position == camPos1.position)
         {
             menu.enabled = true;
+            filling = true;
         }
 	}
 }

@@ -12,6 +12,7 @@ public class GameManagerScript : MonoBehaviour
     public Sprite[] sps;
     public List<GameObject> clickedCards = new List<GameObject>();
     public Slider life;
+    public Text textScore;
     GameObject[] cards;
     GameObject[] cards2;
     float turnTime;
@@ -33,7 +34,8 @@ public class GameManagerScript : MonoBehaviour
 
 	void Update () 
     {
-        score = life.value * 1000;
+        score = life.value * 100;
+        textScore.text = "Score: " + score.ToString(); 
         if (clickedCards.Count > 2)
         {
             notEqui = true;
