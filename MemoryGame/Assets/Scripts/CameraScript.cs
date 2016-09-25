@@ -7,12 +7,16 @@ public class CameraScript : MonoBehaviour
     public Transform camPos1;
     public Transform camPos2;
     public Canvas menu;
+    public Canvas enterName;
+    public InputField inputField;
     public Image bg;
     public bool movement = false;
+    public bool enterNameAppear = false;
     bool filling = false;
     void Start()
     {
         menu.enabled = false;
+        enterName.enabled = false;
         bg.fillAmount = 0;
     }
 	void Update () 
@@ -21,10 +25,18 @@ public class CameraScript : MonoBehaviour
         {
             bg.fillAmount += 0.01f;
         }
-        if(movement)
+        if(enterNameAppear)
         {
-            this.transform.position = Vector3.MoveTowards(this.transform.position, camPos2.position, 10f);
-            this.transform.eulerAngles = Vector3.MoveTowards(this.transform.eulerAngles, camPos2.eulerAngles, 1f); 
+            if (!PlayerPrefs.HasKey("Username"))
+            {
+                enterName.enabled = true;
+            }
+            else if (PlayerPrefs.HasKey("Username"))
+            {
+                enterName.enabled = false;
+                this.transform.position = Vector3.MoveTowards(this.transform.position, camPos2.position, 10f);
+                this.transform.eulerAngles = Vector3.MoveTowards(this.transform.eulerAngles, camPos2.eulerAngles, 1f);
+            }        
         }	
         else
         {

@@ -13,15 +13,19 @@ public class GameManagerScript : MonoBehaviour
     public List<GameObject> clickedCards = new List<GameObject>();
     public Slider life;
     public Text textScore;
+    public Highscores Highscore;
     GameObject[] cards;
     GameObject[] cards2;
+    GameObject cam;
     float turnTime;
+    string username;
     float score;
     int toWin;
     bool notEqui = false;
 
     void Awake()
     {
+        cam = GameObject.FindGameObjectWithTag("MainCamera");
         cards = GameObject.FindGameObjectsWithTag("Cards");
         cards2 = GameObject.FindGameObjectsWithTag("Cards2");
         Shuffle(sps);
@@ -49,8 +53,9 @@ public class GameManagerScript : MonoBehaviour
                 if(toWin >= 11)
                 {
                     Debug.Log("Venceu");
-                    score = score > PlayerPrefs.GetFloat("Highscore") ? score : PlayerPrefs.GetFloat("Highscore");
-                    PlayerPrefs.SetFloat("Highscore", score);
+                    score = score > PlayerPrefs.GetInt("Highscore") ? score : PlayerPrefs.GetInt("Highscore");
+                    PlayerPrefs.SetInt("Highscore",(int) score);
+                    Highscore.AddNewHighscore(PlayerPrefs.GetString("Username"), PlayerPrefs.GetInt("Highscore"));
                 }
             }
             else
@@ -81,6 +86,11 @@ public class GameManagerScript : MonoBehaviour
                 Debug.Log("Perdeu");
             }
         }
+    }
+
+    public void OnEntrarClick()
+    {
+        PlayerPrefs.SetString("Username", cam.GetComponent<CameraScript>().inputField.text);
     }
 
     public void click(GameObject card)
