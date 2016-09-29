@@ -8,6 +8,7 @@ using UnityEngine.UI;
 
 public class GameManagerScript : MonoBehaviour 
 {
+    public GameObject gameCanvas;
     public Sprite[] sps;
     public List<GameObject> clickedCards = new List<GameObject>();
     public Slider life;
@@ -95,6 +96,7 @@ public class GameManagerScript : MonoBehaviour
     public void click(GameObject card)
     {
         clickedCards.Add(card);
+        gameCanvas.GetComponent<AudioSource>().Play();
     }
     
     void Shuffle(Sprite[] sprites)
