@@ -8,7 +8,6 @@ using UnityEngine.UI;
 
 public class GameManagerScript : MonoBehaviour 
 {
-
     public Sprite[] sps;
     public List<GameObject> clickedCards = new List<GameObject>();
     public Slider life;
