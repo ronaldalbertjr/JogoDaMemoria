@@ -52,10 +52,10 @@ public class GameManagerScript : MonoBehaviour
                 toWin++;
                 if(toWin >= 11)
                 {
-                    Debug.Log("Venceu");
                     score = score > PlayerPrefs.GetInt("Highscore") ? score : PlayerPrefs.GetInt("Highscore");
                     PlayerPrefs.SetInt("Highscore",(int) score);
                     Highscore.AddNewHighscore(PlayerPrefs.GetString("Username"), PlayerPrefs.GetInt("Highscore"));
+                    Application.LoadLevel("SceneGanhou");
                 }
             }
             else

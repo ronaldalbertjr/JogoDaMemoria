@@ -4,6 +4,7 @@ using UnityEngine.UI;
 
 public class CameraScript : MonoBehaviour 
 {
+    public Canvas pause;
     public Transform camPos1;
     public Transform camPos2;
     public Canvas menu;
@@ -15,6 +16,7 @@ public class CameraScript : MonoBehaviour
     bool filling = false;
     void Start()
     {
+        pause.enabled = false;
         menu.gameObject.GetComponent<AudioSource>().Pause();
         menu.enabled = false;
         enterName.enabled = false;
@@ -49,6 +51,11 @@ public class CameraScript : MonoBehaviour
             menu.gameObject.GetComponent<AudioSource>().UnPause();
             menu.enabled = true;
             filling = true;
+        }
+        if(Input.GetKey(KeyCode.Escape) && PlayerPrefs.HasKey("Username") && enterNameAppear)
+        {
+            pause.enabled = true;
+            Time.timeScale = 0;
         }
 	}
 }

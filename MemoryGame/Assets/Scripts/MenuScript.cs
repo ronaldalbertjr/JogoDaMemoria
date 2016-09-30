@@ -39,7 +39,7 @@ public class MenuScript : MonoBehaviour
     void DisabablingCanvas()
     {
         menu.GetComponentInChildren<Image>().fillAmount -= 0.01f;
-        if(menu.GetComponentInChildren<Image>().fillAmount <= 0f)
+        if (menu.GetComponentInChildren<Image>().fillAmount <= 0f)
         {
             menu.enabled = false;
         }
