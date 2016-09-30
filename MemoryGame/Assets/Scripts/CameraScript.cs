@@ -15,6 +15,7 @@ public class CameraScript : MonoBehaviour
     bool filling = false;
     void Start()
     {
+        menu.gameObject.GetComponent<AudioSource>().Pause();
         menu.enabled = false;
         enterName.enabled = false;
         bg.fillAmount = 0;
@@ -27,6 +28,7 @@ public class CameraScript : MonoBehaviour
         }
         if(enterNameAppear)
         {
+            menu.gameObject.GetComponent<AudioSource>().Pause();
             if (!PlayerPrefs.HasKey("Username"))
             {
                 enterName.enabled = true;
@@ -44,6 +46,7 @@ public class CameraScript : MonoBehaviour
         }
         if(this.transform.position == camPos1.position)
         {
+            menu.gameObject.GetComponent<AudioSource>().UnPause();
             menu.enabled = true;
             filling = true;
         }
