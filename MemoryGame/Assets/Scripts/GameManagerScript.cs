@@ -68,14 +68,14 @@ public class GameManagerScript : MonoBehaviour
         {
             life.value -= 0.0005f;
             turnTime += Time.deltaTime;
-            if(turnTime >= 0.5)
+            if(turnTime >= 1)
             {
                 foreach(GameObject cardr in clickedCards)
                 {
                     cardr.GetComponent<ButtonScript>().unTurn();
                 }
             }
-            if(turnTime >= 1.2)
+            if(turnTime >= 2)
             {
                 notEqui = false;
                 clickedCards.Clear();
@@ -83,7 +83,7 @@ public class GameManagerScript : MonoBehaviour
             }
             if(life.value <= 0)
             {
-                Debug.Log("Perdeu");
+                Application.LoadLevel("ScenePerdeu");
             }
         }
     }
