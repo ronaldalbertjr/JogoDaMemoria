@@ -44,5 +44,6 @@ public class LeaderboardScript : MonoBehaviour
     {
         leaderboard.enabled = false;
         menu.enabled = true;
+        menu.gameObject.GetComponent<MenuScript>().disabled = false;
     }
 }

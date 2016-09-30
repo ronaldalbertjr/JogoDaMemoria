@@ -48,7 +48,9 @@
   <ItemGroup>
      <Compile Include="Assets\Scripts\ButtonScript.cs" />
      <Compile Include="Assets\Scripts\CameraScript.cs" />
+     <Compile Include="Assets\Scripts\CandidatosCanvasScript.cs" />
      <Compile Include="Assets\Scripts\CandidatosInfoScript.cs" />
+     <Compile Include="Assets\Scripts\CreditosCanvasScript.cs" />
      <Compile Include="Assets\Scripts\GameManagerScript.cs" />
      <Compile Include="Assets\Scripts\Highscores.cs" />
      <Compile Include="Assets\Scripts\LeaderboardScript.cs" />

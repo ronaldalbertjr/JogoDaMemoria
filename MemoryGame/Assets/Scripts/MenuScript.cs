@@ -4,6 +4,8 @@ using UnityEngine.UI;
 
 public class MenuScript : MonoBehaviour 
 {
+    public Canvas cand;
+    public Canvas cred;
     public GameObject cam;
     public Canvas leaderboardCanvas;
     public Canvas menu;
@@ -11,6 +13,8 @@ public class MenuScript : MonoBehaviour
     void Awake()
     {
         leaderboardCanvas.enabled = false;
+        cand.enabled = false;
+        cred.enabled = false;
     }
     void Update()
     {
@@ -30,11 +34,13 @@ public class MenuScript : MonoBehaviour
     }
     public void OnCreditosClick()
     {
-        Debug.Log("Creditos Cena");
+        cred.enabled = true;
+        disabled = true;
     }
     public void OnSairClick()
     {
-        Application.Quit();
+        cand.enabled = true;
+        disabled = true;
     }
     void DisabablingCanvas()
     {
